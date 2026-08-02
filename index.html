@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自家製麺 いけだ｜幕張のラーメン店</title>
+<meta name="description" content="2026年3月15日、幕張にオープン。千葉市の本店から毎日直送する自家製麺と、煮干し中華そば・濃厚豚骨の二枚看板。京成幕張駅から徒歩数十秒。">
+<meta property="og:title" content="自家製麺 いけだ｜幕張のラーメン店">
+<meta property="og:description" content="毎日直送の自家製麺。煮干し中華そばと濃厚豚骨の二枚看板。">
+<meta property="og:type" content="restaurant">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0b0a;
+  --bg2:#171210;
+  --red:#c0182a;
+  --red-deep:#8e0f1d;
+  --gold:#cda349;
+  --cream:#f3ece0;
+  --muted:#b9ad9b;
+  --line:rgba(205,163,73,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  background:var(--bg);
+  color:var(--cream);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.mincho{font-family:"Shippori Mincho",serif;}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+section{position:relative}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(14,11,10,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Shippori Mincho",serif;font-weight:800;font-size:18px;letter-spacing:.06em;color:var(--cream)}
+.brand img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:13px;color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* ---------- Hero ---------- */
+/* ---- Poster background (photo fills the whole section, faded) ---- */
+.pbg{position:relative;overflow:hidden;background:#100b09}
+.pbg .pl{position:absolute;inset:0;z-index:0}
+.pbg .pl-img{background:var(--poster) center/cover no-repeat}
+.pbg .pl-ov{background:linear-gradient(rgba(11,8,7,.5),rgba(10,8,7,.58) 55%,rgba(9,7,6,.7))}
+.pbg > .wrap,.pbg > .hero-inner{position:relative;z-index:1}
+/* hero: full-width cover image (looks right on both PC & mobile) */
+.hero .pl-cover{background:var(--poster) center/cover no-repeat}
+.hero .pl-ov{background:linear-gradient(rgba(10,8,7,.46),rgba(9,7,6,.4) 45%,rgba(9,7,6,.74))}
+
+.hero{
+  position:relative;width:100%;aspect-ratio:1075/1522;min-height:620px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:96px 22px;overflow:hidden;
+}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:1;background:linear-gradient(90deg,transparent,var(--red),var(--gold),var(--red),transparent)}
+
+/* ---------- 二枚看板 (two posters side by side) ---------- */
+.twoboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+@media(max-width:640px){.twoboard-grid{grid-template-columns:1fr;gap:18px;max-width:420px}}
+.board{position:relative;aspect-ratio:1200/1698;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 22px 56px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;text-align:center;padding:34px 26px;transition:.25s}
+.board:hover{transform:translateY(-5px);border-color:var(--gold)}
+.board .bgimg{position:absolute;inset:0;background:var(--poster) center/cover no-repeat;z-index:0}
+.board .ov{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(9,7,6,.58),rgba(9,7,6,.66) 55%,rgba(8,6,5,.8))}
+.board .content{position:relative;z-index:2;max-width:300px}
+.board .en{display:block;font-size:11px;letter-spacing:.28em;color:var(--gold);margin-bottom:10px}
+.board .ja{font-family:"Shippori Mincho",serif;font-weight:800;font-size:clamp(20px,5vw,28px);letter-spacing:.06em;line-height:1.4;text-shadow:0 4px 18px rgba(0,0,0,.8)}
+.board .copy{font-family:"Shippori Mincho",serif;font-size:clamp(13px,3.4vw,15.5px);line-height:1.95;color:var(--cream);margin-top:16px;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+.board .bar{width:38px;height:3px;background:var(--red);margin:18px auto 0;border-radius:2px}
+.hero-inner{max-width:760px}
+.hero-logo{width:160px;height:160px;margin:0 auto 26px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px rgba(205,163,73,.4),0 20px 60px rgba(0,0,0,.6)}
+.hero .open-badge{
+  display:inline-block;border:1px solid var(--gold);color:var(--gold);
+  font-size:12px;letter-spacing:.22em;padding:7px 18px;border-radius:30px;margin-bottom:24px;
+}
+.hero h1{
+  font-family:"Shippori Mincho",serif;font-weight:800;
+  font-size:clamp(38px,9vw,72px);line-height:1.15;letter-spacing:.06em;margin-bottom:8px;
+  text-shadow:0 4px 30px rgba(0,0,0,.6);
+}
+.hero h1 .sub{display:block;font-size:clamp(13px,3.6vw,18px);color:var(--gold);letter-spacing:.4em;font-weight:600;margin-bottom:14px}
+.hero .lead{font-family:"Shippori Mincho",serif;font-size:clamp(15px,3.6vw,20px);color:var(--cream);margin-top:22px;line-height:2}
+.hero .twoboard{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .twoboard span{border:1px solid var(--line);padding:9px 18px;border-radius:6px;font-size:13px;color:var(--cream);background:rgba(192,24,42,.14)}
+.cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 30px;border-radius:8px;font-weight:700;font-size:14px;letter-spacing:.08em;transition:.2s}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-deep)}
+.btn-ghost{border:1px solid var(--gold);background:var(--gold);color:#1a1410;text-shadow:none}
+.btn-ghost:hover{background:#b8912f;border-color:#b8912f;color:#1a1410}
+
+/* ---------- Section heading ---------- */
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-head .ja{font-family:"Shippori Mincho",serif;font-weight:800;font-size:clamp(26px,6vw,40px);letter-spacing:.08em}
+.sec-head .en{display:block;font-size:12px;letter-spacing:.35em;color:var(--gold);margin-top:10px}
+.sec-head .bar{width:46px;height:3px;background:var(--red);margin:18px auto 0;border-radius:2px}
+
+.pad{padding:90px 0}
+.alt{background:var(--bg2)}
+
+/* ---------- Concept ---------- */
+.concept .body{max-width:720px;margin:0 auto;text-align:center;font-family:"Shippori Mincho",serif;font-size:clamp(15px,3.6vw,19px);line-height:2.2;color:var(--cream)}
+.concept .body strong{color:var(--gold);font-weight:700}
+.poster-feature{max-width:430px;margin:46px auto 0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.poster-feature img{width:100%;height:auto;display:block}
+
+/* ---------- Menu ---------- */
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+@media(max-width:680px){.menu-grid{grid-template-columns:1fr;gap:22px}}
+.card{
+  background:#15100d;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  transition:.25s;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card .ph{aspect-ratio:4/3;background:#221813 center/cover no-repeat;position:relative}
+.card .ph.no-photo{display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"Shippori Mincho",serif;font-size:15px;letter-spacing:.2em}
+.card .tag{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;letter-spacing:.05em}
+.card .info{padding:20px 22px 24px}
+.card h3{font-family:"Shippori Mincho",serif;font-size:21px;font-weight:700;letter-spacing:.04em;margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.9}
+.card .variants{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.card .variants span{font-size:12px;border:1px solid var(--line);color:var(--cream);padding:4px 11px;border-radius:5px}
+.noodle-note{text-align:center;color:var(--muted);font-size:13px;margin-top:30px;letter-spacing:.05em}
+
+/* ---------- Topping ---------- */
+.free-banner{
+  text-align:center;font-family:"Shippori Mincho",serif;font-size:clamp(20px,5vw,30px);font-weight:800;
+  color:#fff;background:var(--red);border-radius:12px;padding:22px;margin-bottom:40px;letter-spacing:.08em;
+  box-shadow:0 10px 40px rgba(192,24,42,.3);
+}
+.free-banner small{display:block;font-size:13px;color:#ffe2c6;letter-spacing:.2em;margin-top:6px;font-family:"Noto Sans JP"}
+.topping-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:780px;margin:0 auto}
+@media(max-width:680px){.topping-list{grid-template-columns:repeat(2,1fr)}}
+.topping-list li{list-style:none;text-align:center;border:1px solid var(--line);border-radius:10px;padding:18px 8px;background:rgba(21,16,13,.6);font-size:14px;letter-spacing:.04em}
+
+/* ---------- Takumen promo ---------- */
+.takumen{background:linear-gradient(135deg,#1c0f0c,#2a130f)}
+.takumen-card{
+  max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr 150px;gap:34px;align-items:center;
+  background:#15100d;border:1px solid var(--line);border-radius:18px;padding:34px 36px;
+}
+@media(max-width:620px){.takumen-card{grid-template-columns:1fr;text-align:center;gap:22px;padding:30px 24px}}
+.takumen-card .label{display:inline-block;font-size:11px;letter-spacing:.2em;color:var(--gold);border:1px solid var(--gold);padding:5px 13px;border-radius:20px;margin-bottom:16px}
+.takumen-card h3{font-family:"Shippori Mincho",serif;font-size:clamp(21px,4.6vw,28px);line-height:1.5;margin-bottom:12px}
+.takumen-card p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:20px}
+.takumen-card .btn-primary{font-size:15px}
+.takumen-qr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.takumen-qr img{width:140px;height:140px;border-radius:10px;background:#fff;padding:8px}
+.takumen-qr span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+@media(max-width:620px){.takumen-qr{order:-1}}
+
+/* ---------- Owner ---------- */
+.owner-wrap{max-width:680px;margin:0 auto;text-align:center}
+.owner-text h3{font-family:"Shippori Mincho",serif;font-size:26px;margin-bottom:4px}
+.owner-text .role{color:var(--gold);font-size:13px;letter-spacing:.1em;margin-bottom:18px}
+.owner-text p{font-size:14.5px;color:var(--muted);line-height:2;margin-bottom:16px}
+.awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;justify-content:center}
+.awards span{font-size:12px;border:1px solid var(--gold);color:var(--gold);padding:6px 13px;border-radius:30px}
+
+/* ---------- Info ---------- */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:780px){.info-grid{grid-template-columns:1fr}}
+.info-table{width:100%;border-collapse:collapse}
+.info-table th,.info-table td{text-align:left;padding:13px 6px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.info-table th{width:34%;color:var(--gold);font-weight:600;white-space:nowrap}
+.closed{color:var(--red)}
+.map-embed{width:100%;height:100%;min-height:300px;border:0;border-radius:12px}
+.map-box{border:1px solid var(--line);border-radius:12px;overflow:hidden;min-height:300px}
+
+/* ---------- Footer ---------- */
+footer{background:#080605;padding:56px 0 40px;border-top:1px solid var(--line);text-align:center}
+.foot-logo{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 16px;box-shadow:0 0 0 2px rgba(205,163,73,.35)}
+.foot-brand{font-family:"Shippori Mincho",serif;font-weight:800;font-size:24px;letter-spacing:.08em;margin-bottom:6px}
+.foot-brand span{color:var(--gold)}
+.foot-sns{display:flex;gap:18px;justify-content:center;margin:22px 0}
+.foot-sns a{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s}
+.foot-sns a:hover{border-color:var(--gold);background:rgba(205,163,73,.1)}
+.foot-sns svg{width:20px;height:20px;fill:var(--cream)}
+.foot-meta{color:var(--muted);font-size:12.5px;line-height:1.9;margin-top:14px}
+.copy{color:#6b5f52;font-size:11px;margin-top:24px;letter-spacing:.1em}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="images/logo.png" alt="自家製麺 いけだ" onerror="this.style.display='none'">
+      <div>自家製麺 <span>いけだ</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#concept">こだわり</a>
+      <a href="#menu">メニュー</a>
+      <a href="#owner">店主</a>
+      <a href="#info">店舗情報</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero pbg" style="--poster:url('images/hero.jpg')">
+  <div class="pl pl-cover"></div><div class="pl pl-ov"></div>
+  <div class="hero-inner reveal">
+    <img class="hero-logo" src="images/logo.png" alt="自家製麺 いけだ ロゴ" onerror="this.style.display='none'">
+    <span class="open-badge">2026.3.15 幕張 OPEN</span>
+    <h1 class="mincho">
+      <span class="sub">JIKASEI-MEN IKEDA</span>
+      自家製麺 いけだ
+    </h1>
+    <p class="lead">千葉市の本店から毎日直送する自家製麺。<br>水と煮干しで創り上げた濃密な淡麗中華そばと、<br>じっくり半日炊き上げた濃厚豚骨の二枚看板。</p>
+    <div class="twoboard">
+      <span>煮干し中華そば</span>
+      <span>濃厚 豚骨ラーメン</span>
+    </div>
+    <div class="cta-row">
+      <a href="#menu" class="btn btn-primary">メニューを見る</a>
+      <a href="#info" class="btn btn-ghost">店舗情報・アクセス</a>
+    </div>
+  </div>
+</section>
+
+<!-- Concept -->
+<section class="pad concept" id="concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ja mincho">奥深い、一杯。</div>
+      <span class="en">OUR CRAFT</span>
+      <div class="bar"></div>
+    </div>
+    <p class="body reveal">
+      千葉市中央区の <strong>SCLabo</strong> 2号店として誕生した「自家製麺 いけだ」。<br>
+      本店から<strong>毎日直送する自家製麺</strong>を、香りと味わいを心ゆくまで。<br>
+      全国各地から選び抜いた煮干しが生み出す奥深い淡麗中華そばと、<br>
+      拘りの水と豚骨をじっくり半日炊き上げた濃厚豚骨——<br>
+      <strong>二枚看板</strong>で皆様をお出迎えいたします。
+    </p>
+  </div>
+</section>
+
+<!-- 二枚看板 -->
+<section class="pad twoboard-sec" id="signature">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ja mincho">二枚看板</div>
+      <span class="en">TWO SIGNATURES</span>
+      <div class="bar"></div>
+    </div>
+    <div class="twoboard-grid">
+      <div class="board reveal" id="niboshi" style="--poster:url('images/niboshi-poster.jpg')">
+        <div class="bgimg"></div><div class="ov"></div>
+        <div class="content">
+          <span class="en">NIBOSHI CHUKA SOBA</span>
+          <div class="ja mincho">煮干し中華そば</div>
+          <p class="copy">全国各地から選び抜いた煮干しが生み出す、濃密で奥深い淡麗中華そば。麺は本店から毎日直送の自家製細麺。</p>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="board reveal" id="tonkotsu-feature" style="--poster:url('images/tonkotsu-poster.jpg')">
+        <div class="bgimg"></div><div class="ov"></div>
+        <div class="content">
+          <span class="en">RICH TONKOTSU</span>
+          <div class="ja mincho">濃厚 豚骨ラーメン</div>
+          <p class="copy">拘りの水と豚骨を半日かけて炊き上げた濃厚スープ。夢中になる、ある一杯。麺は太麺・細麺からお選びいただけます。</p>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="pad" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ja mincho">お品書き</div>
+      <span class="en">MENU</span>
+      <div class="bar"></div>
+    </div>
+    <div class="menu-grid">
+
+      <div class="card reveal">
+        <div class="ph" style="background-image:url('images/niboshi.jpg')"></div>
+        <div class="info">
+          <h3>煮干し中華そば</h3>
+          <p>全国から選び抜いた煮干しが生み出す、濃密で奥深い淡麗スープ。麺は自家製の細麺。</p>
+          <div class="variants"><span>並盛り</span><span>味玉</span><span>チャーシュー麺</span></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="ph" style="background-image:url('images/tonkotsu.jpg')"></div>
+        <div class="info">
+          <h3>濃厚 豚骨ラーメン</h3>
+          <p>拘りの水と豚骨を半日かけて炊き上げた濃厚スープ。麺は太麺・細麺からお選びいただけます。</p>
+          <div class="variants"><span>細麺</span><span>太麺</span><span>味玉</span><span>チャーシュー麺</span></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="ph" style="background-image:url('images/mazesoba.jpg')"></div>
+        <div class="info">
+          <h3>まぜそば（ラー油入り）</h3>
+          <p>もっちり太麺に旨味を絡める一杯。仕上げのラー油が食欲をそそります。</p>
+          <div class="variants"><span>太麺</span><span>味玉</span><span>チャーシュー</span></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="ph" style="background-image:url('images/tkm.jpg')"></div>
+        <div class="info">
+          <h3>卵かけ麺（TKM）</h3>
+          <div class="variants"><span>並盛り</span><span>味玉</span><span>チャーシュー</span></div>
+        </div>
+      </div>
+
+    </div>
+    <p class="noodle-note">中華そば=細麺／豚骨=太麺・細麺／まぜそば=太麺／TKM（卵かけ麺）=太麺</p>
+  </div>
+</section>
+
+<!-- Topping -->
+<section class="pad" id="topping">
+  <div class="wrap">
+    <div class="free-banner reveal">
+      全ての商品 大盛り無料
+      <small>ALL MENU — LARGE SIZE FREE</small>
+    </div>
+    <div class="sec-head reveal">
+      <div class="ja mincho">替え玉・トッピング</div>
+      <span class="en">TOPPING & SIDE</span>
+      <div class="bar"></div>
+    </div>
+    <ul class="topping-list reveal">
+      <li>替え玉</li>
+      <li>そのまま食べれる替玉</li>
+      <li>ライス</li>
+      <li>味玉</li>
+      <li>青ネギ</li>
+      <li>キクラゲ</li>
+      <li>海苔</li>
+      <li>生卵</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Takumen promo -->
+<section class="pad takumen" id="takumen">
+  <div class="wrap">
+    <div class="takumen-card reveal">
+      <div class="t">
+        <span class="label">お取り寄せ｜宅麺.com</span>
+        <h3>ご自宅でも、<br>いけだ（SCLabo）の味を。</h3>
+        <p>店主・池田の味を全国どこでも。煮干しまぜそば・濃厚豚骨・つけ麺などを「宅麺.com」でお取り寄せいただけます。</p>
+        <a href="https://www.takumen.com/shops/544" target="_blank" rel="noopener" class="btn btn-primary">宅麺.comでお取り寄せ →</a>
+      </div>
+      <div class="takumen-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&data=https%3A%2F%2Fwww.takumen.com%2Fshops%2F544" alt="宅麺.com QRコード" loading="lazy" onerror="this.parentNode.style.display='none'">
+        <span>スマホで読み取り</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Owner -->
+<section class="pad alt" id="owner">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ja mincho">店主紹介</div>
+      <span class="en">OWNER</span>
+      <div class="bar"></div>
+    </div>
+    <div class="owner-wrap reveal">
+      <div class="owner-text">
+        <h3>池田 将太郎</h3>
+        <div class="role">株式会社 SCLabo 代表</div>
+        <p>
+          フランス料理人として10年の経験を持つ。自らの腕を磨くため、本場フランスでミシュラン2つ星レストランでの経験を積む。
+          日本に帰国後、東京・板橋「中華ソバ 伊吹」、千葉・市原「ちばから」の両名店での修業を経て、公認一番弟子として独立。独立店を営むに至る。
+        </p>
+        <div class="awards">
+          <span>食べログ ラーメン百名店 2度受賞</span>
+          <span>全国ラーメンTOP500 ランクイン</span>
+          <span>お取り寄せ冷凍ラーメン 3年連続 部門日本一</span>
+          <span>ミシュラン2つ星店で研鑽</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info -->
+<section class="pad" id="info">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ja mincho">店舗情報・アクセス</div>
+      <span class="en">INFORMATION</span>
+      <div class="bar"></div>
+    </div>
+    <div class="info-grid reveal">
+      <div>
+        <table class="info-table">
+          <tr><th>店名</th><td>自家製麺 いけだ</td></tr>
+          <tr><th>住所</th><td>〒262-0032<br>千葉県千葉市花見川区幕張町4-601-4<br>穴倉コーポ 101</td></tr>
+          <tr><th>アクセス</th><td>京成幕張駅から徒歩数十秒／JR幕張駅から徒歩約4分</td></tr>
+          <tr><th>電話</th><td><a href="tel:08015755377" style="color:var(--gold)">080-1575-5377</a></td></tr>
+          <tr><th>予約</th><td>予約非対応</td></tr>
+        </table>
+      </div>
+      <div class="map-box">
+        <iframe class="map-embed"
+          src="https://maps.google.com/maps?q=%E8%87%AA%E5%AE%B6%E8%A3%BD%E9%BA%BA%E3%81%84%E3%81%91%E3%81%A0%20%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E8%8A%B1%E8%A6%8B%E5%B7%9D%E5%8C%BA%E5%B9%95%E5%BC%B5%E7%94%BA4-601-4&z=17&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="images/logo.png" alt="自家製麺 いけだ" onerror="this.style.display='none'">
+    <div class="foot-brand mincho">自家製麺 <span>いけだ</span></div>
+    <div class="foot-sns">
+      <a href="https://www.instagram.com/ramen.ikeda/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.2 1 .46 1.4.86.4.4.66.8.86 1.4.17.4.36 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2a3.7 3.7 0 0 1-.86 1.4c-.4.4-.8.66-1.4.86-.4.17-1 .36-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42a3.7 3.7 0 0 1-1.4-.86 3.7 3.7 0 0 1-.86-1.4c-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.2-.6.46-1 .86-1.4.4-.4.8-.66 1.4-.86.4-.17 1-.36 2.1-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.07-1.1.05-1.7.24-2.1.4-.5.2-.9.43-1.3.83-.4.4-.63.8-.83 1.3-.16.4-.35 1-.4 2.1C2.6 9.7 2.6 10.1 2.6 12s0 2.3.07 3.5c.05 1.1.24 1.7.4 2.1.2.5.43.9.83 1.3.4.4.8.63 1.3.83.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.43 1.3-.83.4-.4.63-.8.83-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-3.5s0-2.3-.07-3.5c-.05-1.1-.24-1.7-.4-2.1a3.5 3.5 0 0 0-.83-1.3 3.5 3.5 0 0 0-1.3-.83c-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2Zm5.1-3.3a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/></svg>
+      </a>
+      <a href="https://x.com/zikasemenikeda" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.2 2.5h3.3l-7.2 8.2 8.5 11.3h-6.7l-5.2-6.9-6 6.9H1.8l7.7-8.8L1.3 2.5h6.8l4.7 6.3 5.4-6.3Zm-1.2 17.8h1.8L7.1 4.3H5.2l11.8 16Z"/></svg>
+      </a>
+    </div>
+    <p class="foot-meta">
+      〒262-0032 千葉県千葉市花見川区幕張町4-601-4 穴倉コーポ101<br>
+      TEL 080-1575-5377　｜　京成幕張駅 徒歩数十秒
+    </p>
+    <p class="copy">© 自家製麺 いけだ / 株式会社SCLabo</p>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
